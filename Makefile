@@ -26,7 +26,7 @@ AT%: build/cantiques
 	mv $@_psalmodie.cropped.svg $@_psalmodie.svg;
 
 NT%: build/cantiques
-	lilypond -dcrop -dbackend=svg -o build/cantiques/$@_psalmodie $@.ly; \
+	lilypond -dcrop -dbackend=svg -o build/cantiques/$@_refrain $@.ly; \
         cd ./build/cantiques/; \
-        mv $@_psalmodie.cropped.svg $@_psalmodie.svg;
+        mv $@_refrain.cropped.svg $@_refrain.svg;
 
