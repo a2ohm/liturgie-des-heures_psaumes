@@ -20,7 +20,7 @@ stemOn  = \undo \stemOff
     \bar "|"
     \stemOff sol\breve fa4 \stemOn la4
     \bar "|"
-    \stemOff sol\breve la2 sol4 \stemOn fa4
+    \stemOff sol\breve la1 sol4 \stemOn fa4
     \bar "|"
     \stemOff fa\breve mi4 \stemOn sol4
     \bar "|."

@@ -16,13 +16,13 @@ stemOn  = \undo \stemOff
   {
     \key mib \major
     \cadenzaOn
-    \stemOff sol'\breve fa2 \stemOn mib4
+    \stemOff sol'\breve fa1 \stemOn mib4
     \bar "|"
-    \stemOff sib'\breve sol2 \stemOn fa4
+    \stemOff sib'\breve sol1 \stemOn fa4
     \bar "|"
     \stemOff lab\breve sol4 \stemOn fa4
     \bar "|"
-    \stemOff lab\breve fa2 \stemOn sol4
+    \stemOff lab\breve fa1 \stemOn sol4
     \bar "|."
   }
 }

@@ -16,9 +16,9 @@ stemOn  = \undo \stemOff
   {
     \key fa \major
     \cadenzaOn
-    \stemOff la'\breve fa2 \stemOn sol4
+    \stemOff la'\breve fa1 \stemOn sol4
     \bar "|"
-    \stemOff sib\breve sol2 \stemOn la4
+    \stemOff sib\breve sol1 \stemOn la4
     \bar "|."
   }
 }

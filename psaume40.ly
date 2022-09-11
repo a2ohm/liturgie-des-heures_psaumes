@@ -16,7 +16,7 @@ stemOn  = \undo \stemOff
   {
     \key sol \major
     \cadenzaOn
-    \stemOff sol'\breve^\markup{ soliste } fad2 \stemOn sol4
+    \stemOff sol'\breve^\markup{ soliste } fad1 \stemOn sol4
     \bar "|"
     \stemOff si\breve^\markup{ TOUS } \stemOn la4
     \bar "|"

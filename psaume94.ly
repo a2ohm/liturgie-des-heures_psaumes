@@ -16,17 +16,17 @@ stemOn  = \undo \stemOff
   {
     \key re \major
     \cadenzaOn
-    \stemOff re'\breve^\markup { 1 } fad2 \stemOn la4
+    \stemOff re'\breve^\markup { 1 } fad1 \stemOn la4
     \bar "|"
-    \stemOff la\breve^\markup { 2 } si2 \stemOn la4
+    \stemOff la\breve^\markup { 2 } si1 \stemOn la4
     \bar "|"
-    \stemOff la4^\markup { 3 } fad\breve sold2 \stemOn fad4
+    \stemOff la4^\markup { 3 } fad\breve sold1 \stemOn fad4
     \bar "|"
-    \stemOff fad^\markup { 4 } mi\breve fad2 \stemOn re4
+    \stemOff fad^\markup { 4 } mi\breve fad1 \stemOn re4
     \bar "|"
-    \stemOff si^\markup { (5) } re\breve mi2 \stemOn re4
+    \stemOff si^\markup { (5) } re\breve mi1 \stemOn re4
     \bar "|"
-    \stemOff re^\markup { (6) } sol\breve mi2 \stemOn re4
+    \stemOff re^\markup { (6) } sol\breve mi1 \stemOn re4
     \bar "|."
   }
 }
