@@ -27,6 +27,6 @@ AT%: build/cantiques
 
 NT%: build/cantiques
 	lilypond -dcrop -dbackend=svg -o build/cantiques/$@_refrain $@.ly; \
-        cd ./build/cantiques/; \
-        mv $@_refrain.cropped.svg $@_refrain.svg;
+	cd ./build/cantiques/; \
+	mv $@_refrain.cropped.svg $@_refrain.svg;
 
