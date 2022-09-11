@@ -1,6 +1,12 @@
 \version "2.20.0"
 \language "italiano"
 
+\header {
+  %title = "Cantique du Nouveau Testament 4"
+  %tagline = ##f
+  copyright = "Psalmodie du séminaire de Paris"
+}
+
 armure = { \key fa \major \time 6/8  }
 
 Soprane   = \relative { fa'8 fa mi re fa sol la4. la4 la8 la la la si sol sol la2. \bar "|." }
