@@ -22,7 +22,7 @@ stemOn  = \undo \stemOff
     \bar "|"
     \stemOff la\breve \stemOn sib4
     \bar "|"
-    \stemOff sol\breve sib2 \stemOn la4
+    \stemOff sol\breve sib1 \stemOn la4
     \bar "|."
   }
 }

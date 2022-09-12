@@ -18,11 +18,11 @@ stemOn  = \undo \stemOff
     \cadenzaOn
     \stemOff la'\breve \stemOn sol4
     \bar "|"
-    \stemOff sib\breve la2 sol4 \stemOn fa4
+    \stemOff sib\breve la1 sol4 \stemOn fa4
     \bar "|"
     \stemOff sol\breve fa4 \stemOn sol4
     \bar "|"
-    \stemOff re\breve fa2 mi4 \stemOn re4
+    \stemOff re\breve fa1 mi4 \stemOn re4
     \bar "|."
   }
 }

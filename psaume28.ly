@@ -16,9 +16,9 @@ stemOn  = \undo \stemOff
   {
     \key re \major
     \cadenzaOn
-    \stemOff <re' la'>\breve <mi si'>2 \stemOn <fad la>4
+    \stemOff <re' la'>\breve <mi si'>1 \stemOn <fad la>4
     \bar "|"
-    \stemOff <fad la>\breve <re fad>2 \stemOn <mi la>4
+    \stemOff <fad la>\breve <re fad>1 \stemOn <mi la>4
     \bar "||"
     \stemOff <re la'>\breve^\markup{ + } \stemOn <si fad'>4
     \bar "|."

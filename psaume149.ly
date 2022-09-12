@@ -16,17 +16,17 @@ stemOn  = \undo \stemOff
   {
     \key fa \major
     \cadenzaOn
-    \stemOff la'\breve sol2 \stemOn fa4
+    \stemOff la'\breve sol1 \stemOn fa4
     \bar "|"
-    \stemOff do'\breve sib2 \stemOn la4
+    \stemOff do'\breve sib1 \stemOn la4
     \bar "|"
-    \stemOff re\breve do2 \stemOn sib4
+    \stemOff re\breve do1 \stemOn sib4
     \bar "|"
-    \stemOff do\breve sib2 \stemOn la4
+    \stemOff do\breve sib1 \stemOn la4
     \bar "|"
-    \stemOff re,\breve mi2 \stemOn fa4
+    \stemOff re,\breve mi1 \stemOn fa4
     \bar "|"
-    \stemOff do'\breve sib2 \stemOn la4
+    \stemOff do'\breve sib1 \stemOn la4
     \bar "|."
   }
 }
