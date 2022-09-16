@@ -16,9 +16,15 @@ all: build/psaumes build/cantiques
 	done
 
 psaume%: build/psaumes
+	# export svg
 	lilypond -dcrop -dbackend=svg -o build/psaumes/$@_psalmodie $@.ly; \
 	cd ./build/psaumes/; \
 	mv $@_psalmodie.cropped.svg $@_psalmodie.svg;
+	# export midi
+	# sed : ajoute une pause en fin de mesure puis ajoute le parametre MIDI
+	sed -i.bak -e 's/\\bar "|"/r1 \\bar "|"/g' -e 's/\score {/\score { \\midi { \\tempo 1 = 120 }/g' $@.ly;
+	lilypond -dcrop -dbackend=svg -o build/psaumes/$@_psalmodie $@.ly; \
+	mv $@.ly.bak $@.ly;
 
 AT%: build/cantiques
 	lilypond -dcrop -dbackend=svg -o build/cantiques/$@_psalmodie $@.ly; \

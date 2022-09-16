@@ -16,15 +16,11 @@ stemOn  = \undo \stemOff
   {
     \key sol \major
     \cadenzaOn
-    \stemOff si'\breve la1 \stemOn si4 r1
+    \stemOff si'\breve la1 \stemOn si4
     \bar "|"
     \stemOff si\breve sol1 \stemOn mi4
     \bar "||"
     \stemOff si'\breve^\markup{ + } \stemOn la4
     \bar "|."
-  }
-  \layout { }
-  \midi {
-    \tempo 1 = 120
   }
 }
