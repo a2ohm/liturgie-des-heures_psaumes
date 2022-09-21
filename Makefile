@@ -4,6 +4,8 @@ build/psaumes:
 build/cantiques:
 	mkdir -p build/cantiques
 
+options = --loglevel=PROGRESS -dcrop -dbackend=svg
+
 all: build/psaumes build/cantiques
 	for file in *.ly; do \
 		case "$$file" in \
@@ -11,13 +13,13 @@ all: build/psaumes build/cantiques
 			A*) path="build/cantiques" ;; \
 		esac; \
 		file_root=`basename $$file .ly`_psalmodie ; \
-		lilypond -dcrop -dbackend=svg -o "$$path"/"$$file_root" $$file; \
+		lilypond $(options) -o "$$path"/"$$file_root" $$file; \
 		mv "$$path"/"$$file_root".cropped.svg "$$path"/"$$file_root".svg; \
 	done
 
 psaume%: build/psaumes
 	# export svg
-	lilypond -dcrop -dbackend=svg -o build/psaumes/$@_psalmodie $@.ly; \
+	lilypond $(options) -o build/psaumes/$@_psalmodie $@.ly; \
 	cd ./build/psaumes/; \
 	mv $@_psalmodie.cropped.svg $@_psalmodie.svg;
 	# export midi
@@ -27,12 +29,11 @@ psaume%: build/psaumes
 	mv $@.ly.bak $@.ly;
 
 AT%: build/cantiques
-	lilypond -dcrop -dbackend=svg -o build/cantiques/$@_psalmodie $@.ly; \
+	lilypond $(options) -o build/cantiques/$@_psalmodie $@.ly; \
 	cd ./build/cantiques/; \
 	mv $@_psalmodie.cropped.svg $@_psalmodie.svg;
 
 NT%: build/cantiques
-	lilypond -dcrop -dbackend=svg -o build/cantiques/$@_refrain $@.ly; \
+	lilypond $(options) -o build/cantiques/$@_refrain $@.ly; \
 	cd ./build/cantiques/; \
 	mv $@_refrain.cropped.svg $@_refrain.svg;
-
