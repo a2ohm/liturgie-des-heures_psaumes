@@ -22,11 +22,12 @@ psaume%: build/psaumes
 	lilypond $(options) -o build/psaumes/$@_psalmodie $@.ly; \
 	cd ./build/psaumes/; \
 	mv $@_psalmodie.cropped.svg $@_psalmodie.svg;
+
 	# export midi
 	# sed : ajoute une pause en fin de mesure puis ajoute le parametre MIDI
-	sed -i.bak -e 's/\\bar "|"/r1 \\bar "|"/g' -e 's/\score {/\score { \\midi { \\tempo 1 = 120 }/g' $@.ly;
-	lilypond -dcrop -dbackend=svg -o build/psaumes/$@_psalmodie $@.ly; \
-	mv $@.ly.bak $@.ly;
+	sed -e 's/\\bar "|"/r1 \\bar "|"/g' $@.ly | \
+	sed 's/\\score {/\\score { \\midi { \\tempo 1 = 120 }/g' | \
+	lilypond -o build/psaumes/$@_psalmodie -;
 
 AT%: build/cantiques
 	lilypond $(options) -o build/cantiques/$@_psalmodie $@.ly; \
