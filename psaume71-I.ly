@@ -5,7 +5,7 @@ stemOff = \hide Staff.Stem
 stemOn  = \undo \stemOff
 
 \header {
-  %title = "Psaume 71"
+  %title = "Psaume 71-I"
   %tagline = ##f
   copyright = "Psalmodie du séminaire de Paris"
 }
