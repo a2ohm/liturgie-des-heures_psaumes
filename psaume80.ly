@@ -5,7 +5,7 @@ stemOff = \hide Staff.Stem
 stemOn  = \undo \stemOff
 
 \header {
-  %title = "Psaume 134 II"
+  %title = "Psaume 80"
   %tagline = ##f
   copyright = "Psalmodie du séminaire de Paris"
 }
@@ -14,13 +14,13 @@ stemOn  = \undo \stemOff
   \new Staff \with { \remove "Time_signature_engraver" }
   \relative
   {
-    \key sib \major
+    \key mib \major
     \cadenzaOn
-    \stemOff fa'\breve sol1 \stemOn sib4
+    \stemOff sib'\breve do1 \stemOn sol4
     \bar "|"
-    \stemOff sib\breve sol1 \stemOn fa4
+    \stemOff sol\breve fa1 \stemOn sol4
     \bar "||"
-    \stemOff fa\breve^\markup{+} \stemOn re4
+    \stemOff sib\breve^\markup{+} \stemOn sol4
     \bar "|."
   }
 }
