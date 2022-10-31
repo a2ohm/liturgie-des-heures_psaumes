@@ -31,6 +31,6 @@ AT%: build/AT_psalmodies
 	mv $@_psalmodie.cropped.svg $@_psalmodie.svg;
 
 NT%: build/NT_refrains
-	lilypond $(options) -o build/NT_refrains/$@_refrain $@.ly; \
+	lilypond $(options) -o build/NT_refrains/$@_refrain cantiques_NT/$@.ly; \
 	cd ./build/NT_refrains/; \
 	mv $@_refrain.cropped.svg $@_refrain.svg;
