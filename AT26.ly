@@ -5,7 +5,7 @@ stemOff = \hide Staff.Stem
 stemOn  = \undo \stemOff
 
 \header {
-  %title = "Cantique de l'Ancien Testament 23"
+  %title = "Cantique de l'Ancien Testament 26"
   %tagline = ##f
   copyright = "Psalmodie du séminaire de Paris"
 }
@@ -16,11 +16,9 @@ stemOn  = \undo \stemOff
   {
     \key do \major
     \cadenzaOn
-    \stemOff mi'\breve sol1 \stemOn la4
+    \stemOff sol'\breve la1 \stemOn mi4
     \bar "|"
-    \stemOff la\breve sol1 fa4 \stemOn mi4
-    \bar "||"
-    \stemOff mi\breve^\markup{ + } \stemOn re4
+    \stemOff mi\breve re1 \stemOn mi4
     \bar "|."
   }
 }
