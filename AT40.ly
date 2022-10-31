@@ -21,7 +21,7 @@ stemOn  = \undo \stemOff
     \stemOff si\breve^\markup{ TOUS } \stemOn la4
     \bar "|"
     \stemOff si\breve^\markup{ soliste } \stemOn sol4
-    \bar "||"
+    \bar "|"
     \stemOff la\breve^\markup{ TOUS } \stemOn si4
     \bar "|."
   }
