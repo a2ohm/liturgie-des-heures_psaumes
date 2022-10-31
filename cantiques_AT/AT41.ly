@@ -16,9 +16,14 @@ stemOn  = \undo \stemOff
   {
     \key fa \major
     \cadenzaOn
-    \stemOff la'\breve_\markup{Toutes les œuvres…} do1 \stemOn la4
+    \stemOff la'\breve \bar "|" do\breve \bar "|" \stemOn la4
     \bar "|"
-    \stemOff la\breve sol1 \stemOn fa4
+    \stemOff la\breve \bar "|" sol\breve \bar "|" \stemOn fa4
     \bar "|."
   }
+  \addlyrics{
+      \override LyricText.self-alignment-X = #LEFT
+      "Toutes les" "œuvres du Sei-" "gneur"
+      "bénis-" "sez le Sei-" "gneur"
+    }
 }
