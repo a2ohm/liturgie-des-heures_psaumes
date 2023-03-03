@@ -5,7 +5,7 @@ Ce projet à pour but d'afficher dans l'[application du Père Philoux](https://p
 
 ## Usage
 
-La psalmodie de chaque psaume est notée dans un fichier [Lilypond](lilypond.org/).
+La psalmodie de chaque psaume est notée dans un fichier [Lilypond](https://lilypond.org/).
 Le nom du fichier doit correspondre à celui du psaume dans l'application `Liturgie`.
 La conversion des partitions en fichiers .svg se fait de la façon suivante :
 
