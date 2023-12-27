@@ -15,53 +15,54 @@ build/psaumes/invitatoires:
 	mkdir -p $(PSALM_INV)/svg
 	mkdir -p $(PSALM_INV)/midi
 build/psaumes/laudes:
-	mkdir -p build/psaumes/laudes/svg
-	mkdir -p build/psaumes/laudes/midi
+	mkdir -p $(PSALM_LAUDES)/svg
+	mkdir -p $(PSALM_LAUDES)/midi
 build/psaumes/vepres:
-	mkdir -p build/psaumes/vepres
+	mkdir -p $(PSALM_VEPRES)/svg
+	mkdir -p $(PSALM_VEPRES)/midi
 
 psaume%: build/psaumes/laudes build/psaumes/vepres
 	if [ $(OFFICE) = "" ]; then \
 		echo "Specify an office (see examples)."; \
+		echo "   OFFICE=invitatoires make -s psaume94"; \
 		echo "   OFFICE=laudes make -s psaume5"; \
 		echo "   OFFICE=vepres make -s psaume2"; \
 	else \
-		lilypond $(options_svg) -o build/psaumes/$(OFFICE)/svg/$@_psalmodie psaumes/$(OFFICE)/$@.ly; \
-		cd ./build/psaumes/$(OFFICE)/svg/; \
-		mv $@_psalmodie.cropped.svg $@_psalmodie.svg; \
-		cd -; \
-		# Add the midi section \
-		sed -e 's/\\score {/\\score { \\midi { \\tempo 1 = 60 }/g' psaumes/$(OFFICE)/$@.ly | \
-		# Remove flex \
-		sed '/\+/d' | \
-		# Add rest before bars \
-		sed 's/\\bar "|"/r1 \\bar "|"/g' | \
-		# Longer \
-		sed 's/\\breve/1/g' | \
-		sed 's/4$$/1/g' | \
-		#sed 's/4/2/g' | \
-		lilypond $(options_midi) -o build/psaumes/$(OFFICE)/midi/$@_psalmodie -; \
+		sh build_svg.sh $(OFFICE) $@; \
+		sh build_midi.sh $(OFFICE) $@; \
 	fi
 
 invitatoires: build/psaumes/invitatoires
+	echo "Build: invitatoires"; \
 	for file in psaumes/invitatoires/*.ly; do \
-		file_root=`basename $$file .ly`_psalmodie ; \
-		lilypond $(options_svg) -o $(PSALM_INV)/svg/"$$file_root" $$file; \
-		mv $(PSALM_INV)/svg/"$$file_root".cropped.svg $(PSALM_INV)/svg/"$$file_root".svg; \
+		psalm=`basename $$file .ly` ; \
+		echo -n "\t$$psalm:"; \
+		sh build_svg.sh invitatoires $$psalm; \
+		echo -n " SVG"; \
+		sh build_midi.sh invitatoires $$psalm; \
+		echo " | MIDI"; \
 	done
 
 laudes: build/psaumes/laudes
+	echo "Build: laudes"; \
 	for file in psaumes/laudes/*.ly; do \
-		file_root=`basename $$file .ly`_psalmodie ; \
-		lilypond $(options_svg) -o build/psaumes/laudes/"$$file_root" $$file; \
-		mv build/psaumes/laudes/"$$file_root".cropped.svg build/psaumes/laudes/"$$file_root".svg; \
+		psalm=`basename $$file .ly` ; \
+		echo -n "\t$$psalm: SVG"; \
+		sh build_svg.sh laudes $$psalm; \
+		echo -n " SVG"; \
+		sh build_midi.sh laudes $$psalm; \
+		echo " | MIDI"; \
 	done
 
 vepres: build/psaumes/vepres
+	echo "Build: vepres"; \
 	for file in psaumes/vepres/*.ly; do \
-		file_root=`basename $$file .ly`_psalmodie ; \
-		lilypond $(options_svg) -o build/psaumes/vepres/"$$file_root" $$file; \
-		mv build/psaumes/vepres/"$$file_root".cropped.svg build/psaumes/vepres/"$$file_root".svg; \
+		psalm=`basename $$file .ly` ; \
+		echo -n "\t$$psalm:"; \
+		sh build_svg.sh vepres $$psalm; \
+		echo -n " SVG"; \
+		sh build_midi.sh vepres $$psalm; \
+		echo " | MIDI"; \
 	done
 
 # CANTICLES
