@@ -22,11 +22,11 @@ stemOn  = \undo \stemOff
     \bar "|"
     \stemOff la4^\markup { 3 } fad\breve sold1 \stemOn fad4
     \bar "|"
-    \stemOff fad^\markup { 4 } mi\breve fad1 \stemOn re4
+    \stemOff fad4^\markup { 4 } mi\breve fad1 \stemOn re4
     \bar "|"
-    \stemOff si^\markup { (5) } re\breve mi1 \stemOn re4
+    \stemOff si4^\markup { (5) } re\breve mi1 \stemOn re4
     \bar "|"
-    \stemOff re^\markup { (6) } sol\breve mi1 \stemOn re4
+    \stemOff re4^\markup { (6) } sol\breve mi1 \stemOn re4
     \bar "|."
   }
 }
