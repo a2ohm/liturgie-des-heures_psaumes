@@ -32,6 +32,14 @@ psaume%: $(PSALM_LAUDES) $(PSALM_VEPRES)
 		sh build_midi.sh $(OFFICE) $@; \
 	fi
 
+AT%: $(PSALM_LAUDES)
+	sh build_svg.sh laudes $@; \
+	sh build_midi.sh laudes $@; \
+
+NT%: $(PSALM_VEPRES)
+	sh build_svg.sh vepres $@; \
+	sh build_midi.sh vepres $@ 30; \
+
 invitatoires: $(PSALM_INV)
 	echo "Build: invitatoires"; \
 	for file in psaumes/invitatoires/*.ly; do \
@@ -45,7 +53,7 @@ invitatoires: $(PSALM_INV)
 
 laudes: $(PSALM_LAUDES)
 	echo "Build: laudes"; \
-	for file in psaumes/laudes/*.ly; do \
+	for file in psaumes/laudes/psaume*.ly; do \
 		psalm=`basename $$file .ly` ; \
 		echo -n "\t$$psalm:"; \
 		sh build_svg.sh laudes $$psalm; \
@@ -56,7 +64,7 @@ laudes: $(PSALM_LAUDES)
 
 vepres: $(PSALM_VEPRES)
 	echo "Build: vepres"; \
-	for file in psaumes/vepres/*.ly; do \
+	for file in psaumes/vepres/psaume*.ly; do \
 		psalm=`basename $$file .ly` ; \
 		echo -n "\t$$psalm:"; \
 		sh build_svg.sh vepres $$psalm; \
@@ -65,34 +73,26 @@ vepres: $(PSALM_VEPRES)
 		echo " | MIDI"; \
 	done
 
-# CANTICLES
-build/AT_psalmodies:
-	mkdir -p build/AT_psalmodies
-build/NT_refrains:
-	mkdir -p build/NT_refrains
-
-AT%: build/AT_psalmodies
-	lilypond $(options_svg) -o build/AT_psalmodies/$@_psalmodie cantiques_AT/$@.ly; \
-	cd ./build/AT_psalmodies/; \
-	mv $@_psalmodie.cropped.svg $@_psalmodie.svg;
-
-NT%: build/NT_refrains
-	lilypond $(options_svg) -o build/NT_refrains/$@_refrain cantiques_NT/$@.ly; \
-	cd ./build/NT_refrains/; \
-	mv $@_refrain.cropped.svg $@_refrain.svg;
-
-cantiques_AT: build/AT_psalmodies
-	for file in cantiques_AT/*.ly; do \
-		file_root=`basename $$file .ly`_psalmodie ; \
-		lilypond $(options_svg) -o build/AT_psalmodies/"$$file_root" $$file; \
-		mv build/AT_psalmodies/"$$file_root".cropped.svg build/AT_psalmodies/"$$file_root".svg; \
+cantiques_AT: $(PSALM_LAUDES)
+	echo "Build: AT"; \
+	for file in psaumes/laudes/AT*.ly; do \
+		psalm=`basename $$file .ly` ; \
+		echo -n "\t$$psalm:"; \
+		sh build_svg.sh laudes $$psalm; \
+		echo -n " SVG"; \
+		sh build_midi.sh laudes $$psalm; \
+		echo " | MIDI"; \
 	done
 
-cantiques_NT: build/NT_refrains
-	for file in cantiques_NT/*.ly; do \
-		file_root=`basename $$file .ly`_refrain ; \
-		lilypond $(options_svg) -o build/NT_refrains/"$$file_root" $$file; \
-		mv build/NT_refrains/"$$file_root".cropped.svg build/NT_refrains/"$$file_root".svg; \
+cantiques_NT: $(PSALM_VEPRES)
+	echo "Build: NT"; \
+	for file in psaumes/vepres/NT*.ly; do \
+		psalm=`basename $$file .ly` ; \
+		echo -n "\t$$psalm:"; \
+		sh build_svg.sh vepres $$psalm; \
+		echo -n " SVG"; \
+		sh build_midi.sh vepres $$psalm 30; \
+		echo " | MIDI"; \
 	done
 
 all: invitatoires laudes vepres cantiques_AT cantiques_NT
