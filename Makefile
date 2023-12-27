@@ -6,7 +6,7 @@ options_midi = --loglevel=PROGRESS -dbackend=midi
 #	OFFICE=vepres make -s psaume2"
 OFFICE?=""
 
-# PATH
+# BUILDING PATHS
 PSALM_INV = build/psaumes/invitatoires
 PSALM_LAUDES = build/psaumes/laudes
 PSALM_VEPRES = build/psaumes/vepres
@@ -21,7 +21,7 @@ build/psaumes/vepres:
 	mkdir -p $(PSALM_VEPRES)/svg
 	mkdir -p $(PSALM_VEPRES)/midi
 
-psaume%: build/psaumes/laudes build/psaumes/vepres
+psaume%: $(PSALM_LAUDES) $(PSALM_VEPRES)
 	if [ $(OFFICE) = "" ]; then \
 		echo "Specify an office (see examples)."; \
 		echo "   OFFICE=invitatoires make -s psaume94"; \
@@ -32,7 +32,7 @@ psaume%: build/psaumes/laudes build/psaumes/vepres
 		sh build_midi.sh $(OFFICE) $@; \
 	fi
 
-invitatoires: build/psaumes/invitatoires
+invitatoires: $(PSALM_INV)
 	echo "Build: invitatoires"; \
 	for file in psaumes/invitatoires/*.ly; do \
 		psalm=`basename $$file .ly` ; \
@@ -43,7 +43,7 @@ invitatoires: build/psaumes/invitatoires
 		echo " | MIDI"; \
 	done
 
-laudes: build/psaumes/laudes
+laudes: $(PSALM_LAUDES)
 	echo "Build: laudes"; \
 	for file in psaumes/laudes/*.ly; do \
 		psalm=`basename $$file .ly` ; \
@@ -54,7 +54,7 @@ laudes: build/psaumes/laudes
 		echo " | MIDI"; \
 	done
 
-vepres: build/psaumes/vepres
+vepres: $(PSALM_VEPRES)
 	echo "Build: vepres"; \
 	for file in psaumes/vepres/*.ly; do \
 		psalm=`basename $$file .ly` ; \
