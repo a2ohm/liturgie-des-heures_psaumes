@@ -47,7 +47,7 @@ laudes: $(PSALM_LAUDES)
 	echo "Build: laudes"; \
 	for file in psaumes/laudes/*.ly; do \
 		psalm=`basename $$file .ly` ; \
-		echo -n "\t$$psalm: SVG"; \
+		echo -n "\t$$psalm:"; \
 		sh build_svg.sh laudes $$psalm; \
 		echo -n " SVG"; \
 		sh build_midi.sh laudes $$psalm; \
