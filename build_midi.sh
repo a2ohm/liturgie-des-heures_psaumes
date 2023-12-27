@@ -8,9 +8,12 @@ options_midi="--loglevel=ERROR -dbackend=midi"
 office=$1
 psalm=$2
 
+tempo_default=90
+tempo="${3:-$tempo_default}"
+
 # BUILD
 # Add the midi section
-sed -e 's/\\score {/\\score { \\midi { \\tempo 1 = 90 }/g' "psaumes/${office}/${psalm}.ly" | \
+sed -e 's/\\score {/\\score { \\midi { \\tempo 1 = '$tempo' }/g' "psaumes/${office}/${psalm}.ly" | \
 # Remove flex \
 sed '/\+/d' | \
 # Add rest before bars \
