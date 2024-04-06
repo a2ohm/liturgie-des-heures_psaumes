@@ -4,7 +4,7 @@
 # usage: ./build_svg OFFICE PSALM_NUMBER
 
 # PARAMETERS
-options_svg="--loglevel=ERROR -dcrop -dbackend=svg"
+options_svg="--loglevel=ERROR -dcrop -dbackend=svg -dno-point-and-click"
 office=$1
 psalm=$2
 
