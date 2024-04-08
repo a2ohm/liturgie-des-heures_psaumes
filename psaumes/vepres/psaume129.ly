@@ -21,7 +21,7 @@ voltaOption = \markup \text { v. 5 }
     \set Score.repeatCommands = #(list(list 'volta voltaOption))
     \stemOff re'\breve \stemOn fa4
     \bar "|"
-    \stemOff fa\breve re4 fa \stemOn sol4
+    \stemOff fa\breve re4 fa4 \stemOn sol4
     \set Score.repeatCommands = #'((volta #f))
     \bar "|"
     \stemOff sol\breve \stemOn sib4
