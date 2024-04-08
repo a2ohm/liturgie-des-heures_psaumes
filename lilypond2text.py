@@ -13,8 +13,8 @@ pmarkup = re.compile(r"\^\\markup\{\s?\w+\s?\}")
 
 record = False
 psalmodie = []
-octave = 4
-lastNote = "do"
+octave = 3
+lastNote = "fa"
 
 englishNotes = {
     "do": "C",
@@ -98,7 +98,7 @@ for line in rawLilypond:
                     # Use english notation
                     note = englishNotes[m.group(1)]
                     # Assert: relative notation used in the lilypond file
-                    # But octabe have to be explicit in raw text
+                    # But octave have to be explicit in raw text
                     octave += int((noteValues[lastNote] - noteValues[m.group(1)])/6) + octaveValues.get(m.group(2), 0)
                     # All notes have the same duration but black notes
                     # The duraction of the last note should not be altered
