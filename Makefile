@@ -29,16 +29,16 @@ psaume%: $(PSALM_LAUDES) $(PSALM_VEPRES)
 		echo "   OFFICE=vepres make -s psaume2"; \
 	else \
 		sh build_svg.sh $(OFFICE) $@; \
-		sh build_midi.sh $(OFFICE) $@; \
+		#sh build_midi.sh $(OFFICE) $@; \
 	fi
 
 AT%: $(PSALM_LAUDES)
 	sh build_svg.sh laudes $@; \
-	sh build_midi.sh laudes $@; \
+	#sh build_midi.sh laudes $@; \
 
 NT%: $(PSALM_VEPRES)
 	sh build_svg.sh vepres $@; \
-	sh build_midi.sh vepres $@ 30; \
+	#sh build_midi.sh vepres $@ 30; \
 
 invitatoires: $(PSALM_INV)
 	echo "Build: invitatoires"; \
@@ -46,9 +46,9 @@ invitatoires: $(PSALM_INV)
 		psalm=`basename $$file .ly` ; \
 		echo -n "\t$$psalm:"; \
 		sh build_svg.sh invitatoires $$psalm; \
-		echo -n " SVG"; \
-		sh build_midi.sh invitatoires $$psalm; \
-		echo " | MIDI"; \
+		echo " SVG"; \
+		#sh build_midi.sh invitatoires $$psalm; \
+		#echo " | MIDI"; \
 	done
 
 laudes: $(PSALM_LAUDES)
@@ -57,9 +57,9 @@ laudes: $(PSALM_LAUDES)
 		psalm=`basename $$file .ly` ; \
 		echo -n "\t$$psalm:"; \
 		sh build_svg.sh laudes $$psalm; \
-		echo -n " SVG"; \
-		sh build_midi.sh laudes $$psalm; \
-		echo " | MIDI"; \
+		echo " SVG"; \
+		#sh build_midi.sh laudes $$psalm; \
+		#echo " | MIDI"; \
 	done
 
 vepres: $(PSALM_VEPRES)
@@ -68,9 +68,9 @@ vepres: $(PSALM_VEPRES)
 		psalm=`basename $$file .ly` ; \
 		echo -n "\t$$psalm:"; \
 		sh build_svg.sh vepres $$psalm; \
-		echo -n " SVG"; \
-		sh build_midi.sh vepres $$psalm; \
-		echo " | MIDI"; \
+		echo " SVG"; \
+		#sh build_midi.sh vepres $$psalm; \
+		#echo " | MIDI"; \
 	done
 
 cantiques_AT: $(PSALM_LAUDES)
@@ -79,9 +79,9 @@ cantiques_AT: $(PSALM_LAUDES)
 		psalm=`basename $$file .ly` ; \
 		echo -n "\t$$psalm:"; \
 		sh build_svg.sh laudes $$psalm; \
-		echo -n " SVG"; \
-		sh build_midi.sh laudes $$psalm; \
-		echo " | MIDI"; \
+		echo " SVG"; \
+		#sh build_midi.sh laudes $$psalm; \
+		#echo " | MIDI"; \
 	done
 
 cantiques_NT: $(PSALM_VEPRES)
