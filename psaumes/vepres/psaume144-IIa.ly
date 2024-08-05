@@ -28,7 +28,7 @@ voltaOption = \markup \text {}
     \stemOff sol\breve^\markup{(3)} mi1 \stemOn sol4
     \set Score.repeatCommands = #'((volta #f))
     \bar "|"
-    \stemOff sol\breve^\markup{4} fad1 \stemOn la4
+    \stemOff sol\breve^\markup{4} fad4 \stemOn la4
     \bar "|."
   }
 }
