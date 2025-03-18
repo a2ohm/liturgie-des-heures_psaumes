@@ -1,3 +1,4 @@
+#(ly:set-option 'crop #t)
 \version "2.20.0"
 \language "italiano"
 

@@ -1,3 +1,4 @@
+#(ly:set-option 'crop #t)
 \version "2.20.0"
 \language "italiano"
 
@@ -11,16 +12,25 @@ stemOn  = \undo \stemOff
 }
 
 \score {
-  \new Staff \with { \remove "Time_signature_engraver" }
-  \relative
-  {
-    \key mib \major
-    \cadenzaOn
-    \stemOff sib'\breve do1 \stemOn sol4
-    \bar "|"
-    \stemOff sol\breve fa1 \stemOn sol4
-    \bar "||"
-    \stemOff sib\breve^\markup{+} \stemOn sol4
-    \bar "|."
-  }
+  <<
+    \new ChordNames {
+      \set chordChanges = ##t
+      \chordmode { 
+        mib1 mib1 do4:m 
+        do1:m sib1 mib4
+      }
+    }
+    \new Staff \with { \remove "Time_signature_engraver" }
+    \relative
+    {
+      \key mib \major
+      \cadenzaOn
+      \stemOff sib'1 do1 \stemOn sol4
+      \bar "|"
+      \stemOff sol1 fa1 \stemOn sol4
+      \bar "||"
+      \stemOff sib1^\markup{+} \stemOn sol4
+      \bar "|."
+    }
+  >>
 }
